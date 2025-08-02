@@ -8,7 +8,6 @@ const ThirteenCompactHandDisplay = ({ hand, cardWidth = 60, cardHeight = 84 }) =
     }
 
     const overlap = cardWidth * 0.7; // 70% overlap
-    const cardSpacing = cardWidth * (1 - 0.7); // 30% of card width for spacing
 
     return (
         <Box sx={{
@@ -18,13 +17,11 @@ const ThirteenCompactHandDisplay = ({ hand, cardWidth = 60, cardHeight = 84 }) =
             my: 0.5,
             minHeight: `${cardHeight}px`
         }}>
-            <Stack direction="row" spacing={`${-overlap}px`} sx={{ height: `${cardHeight}px` }}>
+            <Stack direction="row" spacing={`-${overlap}px`} sx={{ height: `${cardHeight}px` }}>
                 {hand.map((card, index) => (
-                     <Box
+                    <Box
                         key={card.id}
                         sx={{
-                            position: 'absolute',
-                            left: `${index * (cardWidth - overlap)}px`,
                             zIndex: 10 + index,
                         }}
                     >
